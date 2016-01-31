@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+require 'cloudinary'
+require 'thor'
+
+class MyCLI < Thor
+
+  desc "list TAG", "lists all images tagged with TAG"
+  def list(tag)
+    puts Cloudinary::Api.resources_by_tag(tag)
+  end
+
+  desc "delete TAG", "deletes all images tagged with TAG"
+  def delete(tag)
+    puts Cloudinary::Api.delete_resources_by_tag(tag)
+  end
+end
+
+
+
+MyCLI.start(ARGV)
