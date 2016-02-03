@@ -1,6 +1,12 @@
 [user]
         name = Lukasz Kaniowski
         email = lukasz.kaniowski@gmail.com
+[pull]
+        rebase = true
+[push]
+        default = simple
+[core]
+        autocrlf = input
 [alias]
         lg = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=relative --abbrev-commit --graph
         out =log @{u}..
@@ -10,3 +16,4 @@
         pop = stash pop
         st = status
         co = checkout
+        mv = mv
