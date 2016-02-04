@@ -10,10 +10,13 @@ class MyCLI < Thor
     puts Cloudinary::Api.resources_by_tag(tag)
   end
 
-  desc "delete TAG", "deletes all images tagged with TAG"
-  def delete(tag)
-    puts Cloudinary::Api.delete_resources_by_tag(tag)
+  desc "delete VALUE", "deletes all images"
+  option :by, :enum => ['tag', 'prefix'], :required => true
+  def delete(value)
+    puts Cloudinary::Api.delete_resources_by_tag(value) if options[:by] == 'tag'
+    puts Cloudinary::Api.delete_resources_by_prefix(value) if options[:by] == 'prefix'
   end
+
 end
 
 
