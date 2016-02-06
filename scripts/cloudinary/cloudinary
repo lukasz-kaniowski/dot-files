@@ -5,9 +5,11 @@ require 'thor'
 
 class MyCLI < Thor
 
-  desc "list TAG", "lists all images tagged with TAG"
-  def list(tag)
-    puts Cloudinary::Api.resources_by_tag(tag)
+  desc "list VALUE", "lists all images tagged with TAG"
+  option :by, :enum => ['tag', 'prefix'], :required => true
+  def list(value)
+    puts Cloudinary::Api.resources_by_tag(value) if options[:by] == 'tag'
+    puts Cloudinary::Api.resources(:prefix => value, :type => :upload) if options[:by] == 'prefix'
   end
 
   desc "delete VALUE", "deletes all images"
