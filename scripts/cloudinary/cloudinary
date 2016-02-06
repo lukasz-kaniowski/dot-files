@@ -8,15 +8,15 @@ class MyCLI < Thor
   desc "list VALUE", "lists all images tagged with TAG"
   option :by, :enum => ['tag', 'prefix'], :required => true
   def list(value)
-    puts Cloudinary::Api.resources_by_tag(value) if options[:by] == 'tag'
-    puts Cloudinary::Api.resources(:prefix => value, :type => :upload) if options[:by] == 'prefix'
+    puts Cloudinary::Api.resources_by_tag(value, :max_results => 500).to_json if options[:by] == 'tag'
+    puts Cloudinary::Api.resources(:prefix => value, :type => :upload, :max_results => 500).to_json if options[:by] == 'prefix'
   end
 
   desc "delete VALUE", "deletes all images"
   option :by, :enum => ['tag', 'prefix'], :required => true
   def delete(value)
-    puts Cloudinary::Api.delete_resources_by_tag(value) if options[:by] == 'tag'
-    puts Cloudinary::Api.delete_resources_by_prefix(value) if options[:by] == 'prefix'
+    puts Cloudinary::Api.delete_resources_by_tag(value, :max_results => 500) if options[:by] == 'tag'
+    puts Cloudinary::Api.delete_resources_by_prefix(value, :max_results => 500) if options[:by] == 'prefix'
   end
 
 end
