@@ -16,3 +16,5 @@
         pop = stash pop
         st = status
         co = checkout
+	cb = checkout -b 
+	br = branch
