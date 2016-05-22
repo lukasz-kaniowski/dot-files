@@ -11,10 +11,12 @@
         lg = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=relative --abbrev-commit --graph
         out =log @{u}..
         in = !git fetch && git lg ..@{u}
-        com = commit -m 
+	c = commit --verbose
         fl = !git fetch && git log ..origin/master
         pop = stash pop
         st = status
         co = checkout
 	cb = checkout -b 
 	br = branch
+	dh = diff HEAD
+
