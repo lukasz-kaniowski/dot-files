@@ -21,4 +21,5 @@
 	cb = checkout -b 
 	br = branch
 	dh = diff HEAD
+	mnff = merge --no-ff
 
