@@ -3,6 +3,8 @@
         email = lukasz.kaniowski@gmail.com
 [pull]
         rebase = true
+[rebase]
+  	autosquash = true
 [push]
         default = simple
 [core]
