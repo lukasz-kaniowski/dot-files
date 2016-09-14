@@ -22,4 +22,6 @@
 	br = branch
 	dh = diff HEAD
 	mnff = merge --no-ff
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	publish = "!sh -c 'git push -u ${1:-origin} $(git branch-name)' -"
 
