@@ -18,10 +18,11 @@
         pop = stash pop
         st = status
         co = checkout
-	cb = checkout -b 
+	cb = checkout -b
 	br = branch
 	dh = diff HEAD
 	mnff = merge --no-ff
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	publish = "!sh -c 'git push -u ${1:-origin} $(git branch-name)' -"
-
+  # Delete current branch
+  close-pr = "!sh -c 'BRANCH=$(git branch-name) && git co master && git pull --prune && git branch -d $BRANCH'"
