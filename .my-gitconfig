@@ -19,6 +19,7 @@
         st = status
         co = checkout
 	cb = checkout -b
+	cbm = !git stash && git checkout master && git pull && git checkout -b
 	br = branch
 	dh = diff HEAD
 	mnff = merge --no-ff
