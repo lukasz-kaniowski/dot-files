@@ -26,4 +26,4 @@
 	branch-name = "!git rev-parse --abbrev-ref HEAD"
 	publish = "!sh -c 'git push -u ${1:-origin} $(git branch-name)' -"
   # Delete current branch
-  close-pr = "!sh -c 'BRANCH=$(git branch-name) && git co master && git pull --prune && git branch -d $BRANCH'"
+  close-pr = "!sh -c 'BRANCH=$(git branch-name) && git co master && git pull --prune && git branch -D $BRANCH'"
